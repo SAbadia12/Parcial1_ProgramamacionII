@@ -1,9 +1,9 @@
 public class Libro {
 
-    public String titulo;
-    public String autor;
-    public int numeroEjemplares;
-    public int numeroEjemplaresPrestados;
+    private String titulo;
+    private String autor;
+    private int numeroEjemplares;
+    private int numeroEjemplaresPrestados;
 
 
  // CONSTRUCTOR VACIO
@@ -21,7 +21,39 @@ public class Libro {
         this.numeroEjemplaresPrestados = numeroEjemplaresPrestados;
     }
     
-    
+    // MÉTODO PRESTAMO
+
+    public boolean prestamo(){
+        if (numeroEjemplares > 0) {
+            numeroEjemplaresPrestados += 1;
+            numeroEjemplares -= 1;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // MÉTODO DEVOLUCIÓN
+
+    public boolean devolucion(){
+        if (numeroEjemplaresPrestados > 0) {
+            numeroEjemplares += 1;
+            numeroEjemplaresPrestados -= 1;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // MÉTODO IMPRIMIR
+
+    public void imprimir(){
+        System.out.println("------Datos del libro------");
+        System.out.println("Titulo: " + getTitulo());
+        System.out.println("Autor: " + getAutor());
+        System.out.println("Ejemplares Disponibles: " + getNumeroEjemplares());
+        System.out.println("Ejemplares prestados: " + getNumeroEjemplaresPrestados());
+    }
 
     // AQUI ESTAN LOS GET Y SET
 
